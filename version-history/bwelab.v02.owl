@@ -25,15 +25,14 @@
     <Prefix name="bwelab" IRI="https://www.escidoc.org/ontologies/bwelab/#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Import>https://www.escidoc.org/ontologies/csmo/</Import>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">0.3</Literal>
-    </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="terms:creator"/>
         <Literal datatypeIRI="&rdf;PlainLiteral">Armand Brahaj
 Frank Schwichtenberg</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">0.2</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="terms:description"/>
@@ -65,6 +64,27 @@ Frank Schwichtenberg</Literal>
     </Declaration>
     <Declaration>
         <Class IRI="Study"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="csmo:Dataset"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="csmo:Investigation"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="csmo:Investigator"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="csmo:Publication"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="csmo:Study"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="csmo:#Institution"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="belongsToInstitution"/>
@@ -133,8 +153,8 @@ Frank Schwichtenberg</Literal>
         <NamedIndividual IRI="sdf"/>
     </Declaration>
     <EquivalentClasses>
-        <Class IRI="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Folder"/>
         <Class IRI="Dataset"/>
+        <Class abbreviatedIRI="csmo:Dataset"/>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="Institution"/>
@@ -142,23 +162,23 @@ Frank Schwichtenberg</Literal>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="Instrument"/>
-        <Class abbreviatedIRI="csmo:#Instrument"/>
+        <Class abbreviatedIRI="csmo:Instrument"/>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="Investigation"/>
-        <Class abbreviatedIRI="csmo:#Investigation"/>
+        <Class abbreviatedIRI="csmo:Investigation"/>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="Investigator"/>
-        <Class abbreviatedIRI="csmo:#Investigator"/>
+        <Class abbreviatedIRI="csmo:Investigator"/>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="Publication"/>
-        <Class abbreviatedIRI="csmo:#Publication"/>
+        <Class abbreviatedIRI="csmo:Publication"/>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="Study"/>
-        <Class abbreviatedIRI="csmo:#Study"/>
+        <Class abbreviatedIRI="csmo:Study"/>
     </EquivalentClasses>
     <SubClassOf>
         <Class IRI="Instrument"/>
@@ -607,6 +627,37 @@ It represents a folder/directory. Examples of folders include folders on a files
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#requiresConfiguration</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">requiresConfiguration</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>csmo:Dataset</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">https://www.escidoc.org/ontologies/csmo#Dataset</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>csmo:Instrument</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">https://www.escidoc.org/ontologies/csmo#Instrument</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>csmo:Investigator</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">https://www.escidoc.org/ontologies/csmo#Investigator</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>csmo:Publication</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">https://www.escidoc.org/ontologies/csmo#Publication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>csmo:Study</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">https://www.escidoc.org/ontologies/csmo#Study</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <AbbreviatedIRI>csmo:#Institution</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">https://www.escidoc.org/ontologies/csmo#Institution
+</Literal>
     </AnnotationAssertion>
 </Ontology>
 

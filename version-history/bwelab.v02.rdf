@@ -10,7 +10,6 @@
     <!ENTITY csmo2 "https://www.escidoc.org/ontologies/csmo/#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY bwelab "https://www.escidoc.org/ontologies/bwelab/#" >
-    <!ENTITY nfo "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" >
 ]>
 
 
@@ -18,7 +17,6 @@
      xml:base="https://www.escidoc.org/ontologies/bwelab/"
      xmlns:bwelab="https://www.escidoc.org/ontologies/bwelab/#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:nfo="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
@@ -28,10 +26,9 @@
     <owl:Ontology rdf:about="https://www.escidoc.org/ontologies/bwelab/">
         <terms:creator>Armand Brahaj
 Frank Schwichtenberg</terms:creator>
-        <owl:versionInfo xml:lang="en">0.3</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">0.2</owl:versionInfo>
         <terms:description xml:lang="en">BW-eLabs ontology, which focuses on contextual information about experiments in research laboratories. The ontology is part of a larger effort, which includes data acquisition in the lab and semi-automated metadata generation. The ontology covers the whole research process from data generation to data publication.</terms:description>
         <owl:versionIRI rdf:resource="https://www.escidoc.org/ontologies/bwelab/"/>
-        <owl:imports rdf:resource="https://www.escidoc.org/ontologies/csmo/"/>
     </owl:Ontology>
     
 
@@ -256,18 +253,11 @@ Frank Schwichtenberg</terms:creator>
     
 
 
-    <!-- http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Folder -->
-
-    <rdf:Description rdf:about="&nfo;Folder">
-        <owl:equivalentClass rdf:resource="https://www.escidoc.org/ontologies/bwelab/Dataset"/>
-    </rdf:Description>
-    
-
-
     <!-- https://www.escidoc.org/ontologies/bwelab/Dataset -->
 
     <owl:Class rdf:about="https://www.escidoc.org/ontologies/bwelab/Dataset">
         <rdfs:label xml:lang="en">Dataset</rdfs:label>
+        <owl:equivalentClass rdf:resource="&csmo;Dataset"/>
         <rdfs:comment xml:lang="en">The entity Dataset represents acquired experimental data and may consist of one or more files</rdfs:comment>
         <rdfs:comment xml:lang="en">This Entity is derived from nfo:Folder.
 It represents a folder/directory. Examples of folders include folders on a filesystem and message folders in a mailbox.</rdfs:comment>
@@ -290,24 +280,12 @@ It represents a folder/directory. Examples of folders include folders on a files
 
     <owl:Class rdf:about="https://www.escidoc.org/ontologies/bwelab/Instrument">
         <rdfs:label xml:lang="en">Instrument</rdfs:label>
-        <owl:equivalentClass rdf:resource="&csmo;#Instrument"/>
+        <owl:equivalentClass rdf:resource="&csmo;Instrument"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasMonitoredFolder"/>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/requiresConfiguration"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;anyURI"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&terms;format"/>
-                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasResponsiblePerson"/>
-                <owl:someValuesFrom rdf:resource="https://www.escidoc.org/ontologies/bwelab/Investigator"/>
+                <owl:onDataRange rdf:resource="&xsd;boolean"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -318,23 +296,27 @@ It represents a folder/directory. Examples of folders include folders on a files
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasEsyncEndpoint"/>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasResponsiblePerson"/>
+                <owl:someValuesFrom rdf:resource="https://www.escidoc.org/ontologies/bwelab/Investigator"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&terms;format"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&terms;description"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasMonitoredFolder"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;anyURI"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/requiresConfiguration"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;boolean"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/requiresCalibration"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;boolean"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -352,8 +334,16 @@ It represents a folder/directory. Examples of folders include folders on a files
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&terms;description"/>
-                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/requiresCalibration"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasEsyncEndpoint"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;anyURI"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An instrument represents a laboratory instrument (e.g., spectrometer, sample holder).</rdfs:comment>
@@ -365,23 +355,11 @@ It represents a folder/directory. Examples of folders include folders on a files
 
     <owl:Class rdf:about="https://www.escidoc.org/ontologies/bwelab/Investigation">
         <rdfs:label xml:lang="en">Investigation</rdfs:label>
-        <owl:equivalentClass rdf:resource="&csmo;#Investigation"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&terms;title"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <owl:equivalentClass rdf:resource="&csmo;Investigation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasResultingDataset"/>
                 <owl:someValuesFrom rdf:resource="https://www.escidoc.org/ontologies/bwelab/Dataset"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasMaxRunTime"/>
-                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -393,14 +371,26 @@ It represents a folder/directory. Examples of folders include folders on a files
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasDepositEndpoint"/>
-                <owl:someValuesFrom rdf:resource="&xsd;anyURI"/>
+                <owl:onProperty rdf:resource="&terms;description"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&terms;description"/>
-                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+                <owl:onProperty rdf:resource="&terms;title"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasMaxRunTime"/>
+                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasDepositEndpoint"/>
+                <owl:someValuesFrom rdf:resource="&xsd;anyURI"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The entity Investigation represents an experiment, its setup, and the resulting datasets</rdfs:comment>
@@ -413,14 +403,14 @@ It represents a folder/directory. Examples of folders include folders on a files
     <owl:Class rdf:about="https://www.escidoc.org/ontologies/bwelab/InvestigationSeries">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasInvestigation"/>
-                <owl:someValuesFrom rdf:resource="https://www.escidoc.org/ontologies/bwelab/Investigation"/>
+                <owl:onProperty rdf:resource="&terms;title"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&terms;title"/>
-                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasInvestigation"/>
+                <owl:someValuesFrom rdf:resource="https://www.escidoc.org/ontologies/bwelab/Investigation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -431,7 +421,7 @@ It represents a folder/directory. Examples of folders include folders on a files
 
     <owl:Class rdf:about="https://www.escidoc.org/ontologies/bwelab/Investigator">
         <rdfs:label xml:lang="en">Investigator</rdfs:label>
-        <owl:equivalentClass rdf:resource="&csmo;#Investigator"/>
+        <owl:equivalentClass rdf:resource="&csmo;Investigator"/>
         <rdfs:comment xml:lang="en">The entity Investigator represents a real person involved in an experiment.</rdfs:comment>
     </owl:Class>
     
@@ -441,7 +431,7 @@ It represents a folder/directory. Examples of folders include folders on a files
 
     <owl:Class rdf:about="https://www.escidoc.org/ontologies/bwelab/Publication">
         <rdfs:label xml:lang="en">Publication</rdfs:label>
-        <owl:equivalentClass rdf:resource="&csmo;#Publication"/>
+        <owl:equivalentClass rdf:resource="&csmo;Publication"/>
         <rdfs:comment xml:lang="en">The entity Publication represents bibliographic information about a publication</rdfs:comment>
     </owl:Class>
     
@@ -465,17 +455,17 @@ It represents a folder/directory. Examples of folders include folders on a files
 
     <owl:Class rdf:about="https://www.escidoc.org/ontologies/bwelab/Study">
         <rdfs:label xml:lang="en">Study</rdfs:label>
-        <owl:equivalentClass rdf:resource="&csmo;#Study"/>
+        <owl:equivalentClass rdf:resource="&csmo;Study"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasResultingPublication"/>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasMotivatingPublication"/>
                 <owl:someValuesFrom rdf:resource="https://www.escidoc.org/ontologies/bwelab/Publication"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasMotivatingPublication"/>
-                <owl:someValuesFrom rdf:resource="https://www.escidoc.org/ontologies/bwelab/Publication"/>
+                <owl:onProperty rdf:resource="&terms;title"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -486,14 +476,14 @@ It represents a folder/directory. Examples of folders include folders on a files
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasInvestigation"/>
-                <owl:someValuesFrom rdf:resource="https://www.escidoc.org/ontologies/bwelab/Investigation"/>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasResultingPublication"/>
+                <owl:someValuesFrom rdf:resource="https://www.escidoc.org/ontologies/bwelab/Publication"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&terms;title"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasInvestigation"/>
+                <owl:someValuesFrom rdf:resource="https://www.escidoc.org/ontologies/bwelab/Investigation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">The entity Study describes an act of research which consists of one or many investigations</rdfs:comment>
@@ -501,39 +491,58 @@ It represents a folder/directory. Examples of folders include folders on a files
     
 
 
+    <!-- https://www.escidoc.org/ontologies/csmo/Dataset -->
+
+    <owl:Class rdf:about="&csmo;Dataset">
+        <rdfs:isDefinedBy>https://www.escidoc.org/ontologies/csmo#Dataset</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/csmo/Instrument -->
+
+    <owl:Class rdf:about="&csmo;Instrument">
+        <rdfs:isDefinedBy>https://www.escidoc.org/ontologies/csmo#Instrument</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/csmo/Investigation -->
+
+    <owl:Class rdf:about="&csmo;Investigation"/>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/csmo/Investigator -->
+
+    <owl:Class rdf:about="&csmo;Investigator">
+        <rdfs:isDefinedBy>https://www.escidoc.org/ontologies/csmo#Investigator</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/csmo/Publication -->
+
+    <owl:Class rdf:about="&csmo;Publication">
+        <rdfs:isDefinedBy>https://www.escidoc.org/ontologies/csmo#Publication</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/csmo/Study -->
+
+    <owl:Class rdf:about="&csmo;Study">
+        <rdfs:isDefinedBy>https://www.escidoc.org/ontologies/csmo#Study</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
     <!-- https://www.escidoc.org/ontologies/csmo/#Institution -->
 
-    <rdf:Description rdf:about="&csmo;#Institution"/>
-    
-
-
-    <!-- https://www.escidoc.org/ontologies/csmo/#Instrument -->
-
-    <rdf:Description rdf:about="&csmo;#Instrument"/>
-    
-
-
-    <!-- https://www.escidoc.org/ontologies/csmo/#Investigation -->
-
-    <rdf:Description rdf:about="&csmo;#Investigation"/>
-    
-
-
-    <!-- https://www.escidoc.org/ontologies/csmo/#Investigator -->
-
-    <rdf:Description rdf:about="&csmo;#Investigator"/>
-    
-
-
-    <!-- https://www.escidoc.org/ontologies/csmo/#Publication -->
-
-    <rdf:Description rdf:about="&csmo;#Publication"/>
-    
-
-
-    <!-- https://www.escidoc.org/ontologies/csmo/#Study -->
-
-    <rdf:Description rdf:about="&csmo;#Study"/>
+    <owl:Class rdf:about="&csmo;#Institution">
+        <rdfs:isDefinedBy>https://www.escidoc.org/ontologies/csmo#Institution
+</rdfs:isDefinedBy>
+    </owl:Class>
     
 
 
