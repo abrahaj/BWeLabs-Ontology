@@ -1,0 +1,594 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="https://www.escidoc.org/ontologies/bwelab.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="https://www.escidoc.org/ontologies/bwelab.owl"
+     versionIRI="https://www.escidoc.org/ontologies/bwelab.owl">
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="terms" IRI="http://purl.org/dc/terms/"/>
+    <Prefix name="csmo" IRI="https://www.escidoc.org/ontologies/csmo.owl#"/>
+    <Prefix name="" IRI="https://www.escidoc.org/ontologies/bwelab.owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="bwelab" IRI="https://www.escidoc.org/ontologies/bwelab.owl#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">0.2</Literal>
+    </Annotation>
+    <Declaration>
+        <Class abbreviatedIRI="bwelab:InvestigationSeries"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="bwelab:Rig"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="csmo:Dataset"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="csmo:Institution"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="csmo:Investigation"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="csmo:Investigator"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="csmo:Publication"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="csmo:Study"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="bwelab:belongsToInstitution"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="bwelab:hasInstrument"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="bwelab:hasInvestigation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="bwelab:hasMotivatingPublication"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="bwelab:hasResponsiblePerson"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="bwelab:hasResultingDataset"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="bwelab:hasResultingPublication"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="bwelab:hasRig"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="bwelab:isInstrumentofRig"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="bwelab:isInvestigationOfStudy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="csmo:hasSite"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="terms:description"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="terms:format"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="terms:title"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="bwelab:hasDepositEndpoint"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="bwelab:hasEsyncEndpoint"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="bwelab:hasMaxRunTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="bwelab:hasMonitoredFolder"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="bwelab:id"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="bwelab:requiresCalibration"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="bwelab:requiresConfiguration"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="bwelab:sdf"/>
+    </Declaration>
+    <SubClassOf>
+        <Class abbreviatedIRI="bwelab:InvestigationSeries"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="bwelab:InvestigationSeries"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="bwelab:hasInvestigation"/>
+            <Class abbreviatedIRI="csmo:Investigation"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="bwelab:InvestigationSeries"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="terms:title"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="bwelab:Rig"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="bwelab:Rig"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="bwelab:hasInstrument"/>
+            <Class abbreviatedIRI="csmo:Instrument"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Dataset"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Institution"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="bwelab:hasResponsiblePerson"/>
+            <Class abbreviatedIRI="csmo:Investigator"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="bwelab:belongsToInstitution"/>
+            <Class abbreviatedIRI="csmo:Institution"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="terms:description"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="terms:format"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+        <DataAllValuesFrom>
+            <DataProperty abbreviatedIRI="bwelab:id"/>
+            <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+        <DataMinCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="terms:title"/>
+        </DataMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="bwelab:hasEsyncEndpoint"/>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="bwelab:hasMonitoredFolder"/>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="bwelab:requiresCalibration"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="bwelab:requiresConfiguration"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Investigation"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="bwelab:hasResultingDataset"/>
+            <Class abbreviatedIRI="csmo:Dataset"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Investigation"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="bwelab:hasRig"/>
+            <Class abbreviatedIRI="bwelab:Rig"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Investigation"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="terms:description"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Investigation"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="bwelab:hasDepositEndpoint"/>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Investigation"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="bwelab:hasMaxRunTime"/>
+            <Datatype abbreviatedIRI="xsd:integer"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Investigation"/>
+        <DataMinCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="terms:title"/>
+        </DataMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Publication"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Study"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Study"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="bwelab:hasInvestigation"/>
+            <Class abbreviatedIRI="csmo:Investigation"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Study"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="bwelab:hasMotivatingPublication"/>
+            <Class abbreviatedIRI="csmo:Publication"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Study"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="bwelab:hasResultingPublication"/>
+            <Class abbreviatedIRI="csmo:Publication"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Study"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="terms:description"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="csmo:Study"/>
+        <DataMinCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="terms:title"/>
+        </DataMinCardinality>
+    </SubClassOf>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="bwelab:hasInstrument"/>
+        <ObjectProperty abbreviatedIRI="bwelab:isInstrumentofRig"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty abbreviatedIRI="bwelab:hasInvestigation"/>
+        <ObjectProperty abbreviatedIRI="bwelab:isInvestigationOfStudy"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="bwelab:hasInstrument"/>
+        <Class abbreviatedIRI="bwelab:Rig"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="bwelab:hasInvestigation"/>
+        <Class abbreviatedIRI="bwelab:InvestigationSeries"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="bwelab:hasInvestigation"/>
+        <Class abbreviatedIRI="csmo:Study"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="bwelab:hasMotivatingPublication"/>
+        <Class abbreviatedIRI="csmo:Study"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="bwelab:hasResponsiblePerson"/>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="bwelab:hasResultingDataset"/>
+        <Class abbreviatedIRI="csmo:Investigation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="bwelab:hasResultingPublication"/>
+        <Class abbreviatedIRI="csmo:Study"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="bwelab:hasRig"/>
+        <Class abbreviatedIRI="csmo:Investigation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="bwelab:isInstrumentofRig"/>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="bwelab:belongsToInstitution"/>
+        <Class abbreviatedIRI="csmo:Institution"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="bwelab:hasInstrument"/>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="bwelab:hasInvestigation"/>
+        <Class abbreviatedIRI="csmo:Investigation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="bwelab:hasMotivatingPublication"/>
+        <Class abbreviatedIRI="csmo:Publication"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="bwelab:hasResponsiblePerson"/>
+        <Class abbreviatedIRI="csmo:Investigator"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="bwelab:hasResultingPublication"/>
+        <Class abbreviatedIRI="csmo:Publication"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="bwelab:hasRig"/>
+        <Class abbreviatedIRI="bwelab:Rig"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="bwelab:isInstrumentofRig"/>
+        <Class abbreviatedIRI="bwelab:Rig"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="bwelab:hasMaxRunTime"/>
+        <Class abbreviatedIRI="csmo:Investigation"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="bwelab:requiresCalibration"/>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="bwelab:requiresConfiguration"/>
+        <Class abbreviatedIRI="csmo:Instrument"/>
+    </DataPropertyDomain>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>terms:format</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">resultMimeType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>bwelab:InvestigationSeries</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The entity Investigation Series aggregates one or many investigations. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:InvestigationSeries</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">InvestigationSeries</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>bwelab:Rig</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A rig describes a set of instruments that are required as a unit to conduct an experiment</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:Rig</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Rig</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:belongsToInstitution</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">belongsToInstitution</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:hasDepositEndpoint</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasDepositEndpoint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:hasEsyncEndpoint</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasEsyncEndpoint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:hasInstrument</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasInstrument</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:hasInvestigation</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasInvestigation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:hasMaxRunTime</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasMaxRunTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:hasMonitoredFolder</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasMonitoredFolder</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:hasMotivatingPublication</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasMotivatingPublication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:hasResponsiblePerson</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasResponsiblePerson</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:hasResultingDataset</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasResultingDataset</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:hasResultingPublication</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasResultingPublication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:hasRig</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasRig</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:id</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">id</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:isInstrumentofRig</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">isInstrumentofRig</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:isInvestigationOfStudy</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">isInvestigationOfStudy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:requiresCalibration</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">requiresCalibration</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>bwelab:requiresConfiguration</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">requiresConfiguration</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>csmo:Dataset</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The entity Dataset represents acquired experimental data and may consist of one or more files</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>csmo:Dataset</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This Entity is derived from nfo:Folder.
+It represents a folder/directory. Examples of folders include folders on a filesystem and message folders in a mailbox.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>csmo:Dataset</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Dataset</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>csmo:Institution</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Institution represents an organization either housing a laboratory with instruments or employing an investigator</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>csmo:Institution</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Institution
+</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>csmo:Instrument</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">An instrument represents a laboratory instrument (e.g., spectrometer, sample holder).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>csmo:Instrument</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Instrument</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>csmo:Investigation</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The entity Investigation represents an experiment, its setup, and the resulting datasets</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>csmo:Investigation</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Investigation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>csmo:Investigator</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The entity Investigator represents a real person involved in an experiment.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>csmo:Investigator</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Investigator</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>csmo:Publication</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The entity Publication represents bibliographic information about a publication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>csmo:Publication</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Publication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>csmo:Study</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The entity Study describes an act of research which consists of one or many investigations</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>csmo:Study</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Study</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+
