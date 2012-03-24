@@ -26,14 +26,29 @@
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Annotation>
+        <AnnotationProperty abbreviatedIRI="terms:creator"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Armand Brahaj
+Frank Schwichtenberg</Literal>
+    </Annotation>
+    <Annotation>
         <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">0.2</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="terms:description"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">BW-eLabs ontology, which focuses on contextual information about experiments in research laboratories. The ontology is part of a larger effort, which includes data acquisition in the lab and semi-automated metadata generation. The ontology covers the whole research process from data generation to data publication.</Literal>
     </Annotation>
     <Declaration>
         <Class IRI="Dataset"/>
     </Declaration>
     <Declaration>
+        <Class IRI="Institution"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="Instrument"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="InvestigationSeries"/>
     </Declaration>
     <Declaration>
         <Class IRI="Investigator"/>
@@ -42,16 +57,10 @@
         <Class IRI="Publication"/>
     </Declaration>
     <Declaration>
+        <Class IRI="Rig"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="Study"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="Institution"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#InvestigationSeries"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Rig"/>
     </Declaration>
     <Declaration>
         <Class abbreviatedIRI="csmo:Dataset"/>
@@ -75,34 +84,34 @@
         <Class abbreviatedIRI="csmo:#Investigation"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#belongsToInstitution"/>
+        <ObjectProperty IRI="belongsToInstitution"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasInstrument"/>
+        <ObjectProperty IRI="hasInstrument"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasInvestigation"/>
+        <ObjectProperty IRI="hasInvestigation"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasMotivatingPublication"/>
+        <ObjectProperty IRI="hasMotivatingPublication"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasResponsiblePerson"/>
+        <ObjectProperty IRI="hasResponsiblePerson"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasResultingDataset"/>
+        <ObjectProperty IRI="hasResultingDataset"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasResultingPublication"/>
+        <ObjectProperty IRI="hasResultingPublication"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasRig"/>
+        <ObjectProperty IRI="hasRig"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#isInstrumentofRig"/>
+        <ObjectProperty IRI="isInstrumentofRig"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#isInvestigationOfStudy"/>
+        <ObjectProperty IRI="isInvestigationOfStudy"/>
     </Declaration>
     <Declaration>
         <ObjectProperty abbreviatedIRI="csmo:#hasSite"/>
@@ -117,32 +126,36 @@
         <DataProperty abbreviatedIRI="terms:title"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasDepositEndpoint"/>
+        <DataProperty IRI="hasDepositEndpoint"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasEsyncEndpoint"/>
+        <DataProperty IRI="hasEsyncEndpoint"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasMaxRunTime"/>
+        <DataProperty IRI="hasMaxRunTime"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#hasMonitoredFolder"/>
+        <DataProperty IRI="hasMonitoredFolder"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#id"/>
+        <DataProperty IRI="id"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#requiresCalibration"/>
+        <DataProperty IRI="requiresCalibration"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#requiresConfiguration"/>
+        <DataProperty IRI="requiresConfiguration"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#sdf"/>
+        <NamedIndividual IRI="sdf"/>
     </Declaration>
     <EquivalentClasses>
         <Class IRI="Dataset"/>
         <Class abbreviatedIRI="csmo:Dataset"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="Institution"/>
+        <Class abbreviatedIRI="csmo:#Institution"/>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="Instrument"/>
@@ -160,25 +173,25 @@
         <Class IRI="Study"/>
         <Class abbreviatedIRI="csmo:Study"/>
     </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="Institution"/>
-        <Class abbreviatedIRI="csmo:#Institution"/>
-    </EquivalentClasses>
     <SubClassOf>
         <Class IRI="Dataset"/>
         <Class abbreviatedIRI="owl:Thing"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Institution"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Instrument"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasResponsiblePerson"/>
+            <ObjectProperty IRI="hasResponsiblePerson"/>
             <Class IRI="Investigator"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Instrument"/>
         <ObjectMinCardinality cardinality="1">
-            <ObjectProperty IRI="#belongsToInstitution"/>
+            <ObjectProperty IRI="belongsToInstitution"/>
             <Class IRI="Institution"/>
         </ObjectMinCardinality>
     </SubClassOf>
@@ -199,7 +212,7 @@
     <SubClassOf>
         <Class IRI="Instrument"/>
         <DataAllValuesFrom>
-            <DataProperty IRI="#id"/>
+            <DataProperty IRI="id"/>
             <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
         </DataAllValuesFrom>
     </SubClassOf>
@@ -212,57 +225,86 @@
     <SubClassOf>
         <Class IRI="Instrument"/>
         <DataExactCardinality cardinality="1">
-            <DataProperty IRI="#hasEsyncEndpoint"/>
+            <DataProperty IRI="hasEsyncEndpoint"/>
             <Datatype abbreviatedIRI="xsd:anyURI"/>
         </DataExactCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Instrument"/>
         <DataExactCardinality cardinality="1">
-            <DataProperty IRI="#hasMonitoredFolder"/>
+            <DataProperty IRI="hasMonitoredFolder"/>
             <Datatype abbreviatedIRI="xsd:anyURI"/>
         </DataExactCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Instrument"/>
         <DataExactCardinality cardinality="1">
-            <DataProperty IRI="#requiresCalibration"/>
+            <DataProperty IRI="requiresCalibration"/>
             <Datatype abbreviatedIRI="xsd:boolean"/>
         </DataExactCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Instrument"/>
         <DataExactCardinality cardinality="1">
-            <DataProperty IRI="#requiresConfiguration"/>
+            <DataProperty IRI="requiresConfiguration"/>
             <Datatype abbreviatedIRI="xsd:boolean"/>
         </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="InvestigationSeries"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="InvestigationSeries"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="hasInvestigation"/>
+            <Class abbreviatedIRI="csmo:#Investigation"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="InvestigationSeries"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="terms:title"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Publication"/>
         <Class abbreviatedIRI="owl:Thing"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Rig"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Rig"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="hasInstrument"/>
+            <Class IRI="Instrument"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Study"/>
         <Class abbreviatedIRI="owl:Thing"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Study"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasInvestigation"/>
+            <ObjectProperty IRI="hasInvestigation"/>
             <Class abbreviatedIRI="csmo:#Investigation"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Study"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasMotivatingPublication"/>
+            <ObjectProperty IRI="hasMotivatingPublication"/>
             <Class IRI="Publication"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Study"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasResultingPublication"/>
+            <ObjectProperty IRI="hasResultingPublication"/>
             <Class IRI="Publication"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
@@ -278,39 +320,6 @@
         <DataMinCardinality cardinality="1">
             <DataProperty abbreviatedIRI="terms:title"/>
         </DataMinCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="Institution"/>
-        <Class abbreviatedIRI="owl:Thing"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#InvestigationSeries"/>
-        <Class abbreviatedIRI="owl:Thing"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#InvestigationSeries"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasInvestigation"/>
-            <Class abbreviatedIRI="csmo:#Investigation"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#InvestigationSeries"/>
-        <DataSomeValuesFrom>
-            <DataProperty abbreviatedIRI="terms:title"/>
-            <Datatype abbreviatedIRI="rdfs:Literal"/>
-        </DataSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Rig"/>
-        <Class abbreviatedIRI="owl:Thing"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Rig"/>
-        <ObjectMinCardinality cardinality="1">
-            <ObjectProperty IRI="#hasInstrument"/>
-            <Class IRI="Instrument"/>
-        </ObjectMinCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class abbreviatedIRI="csmo:Instrument"/>
@@ -330,20 +339,20 @@
     </SubClassOf>
     <SubClassOf>
         <Class abbreviatedIRI="csmo:#Investigation"/>
-        <Class IRI="#InvestigationSeries"/>
+        <Class IRI="InvestigationSeries"/>
     </SubClassOf>
     <SubClassOf>
         <Class abbreviatedIRI="csmo:#Investigation"/>
         <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasResultingDataset"/>
+            <ObjectProperty IRI="hasResultingDataset"/>
             <Class IRI="Dataset"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class abbreviatedIRI="csmo:#Investigation"/>
         <ObjectMinCardinality cardinality="1">
-            <ObjectProperty IRI="#hasRig"/>
-            <Class IRI="#Rig"/>
+            <ObjectProperty IRI="hasRig"/>
+            <Class IRI="Rig"/>
         </ObjectMinCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -356,14 +365,14 @@
     <SubClassOf>
         <Class abbreviatedIRI="csmo:#Investigation"/>
         <DataSomeValuesFrom>
-            <DataProperty IRI="#hasDepositEndpoint"/>
+            <DataProperty IRI="hasDepositEndpoint"/>
             <Datatype abbreviatedIRI="xsd:anyURI"/>
         </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class abbreviatedIRI="csmo:#Investigation"/>
         <DataSomeValuesFrom>
-            <DataProperty IRI="#hasMaxRunTime"/>
+            <DataProperty IRI="hasMaxRunTime"/>
             <Datatype abbreviatedIRI="xsd:integer"/>
         </DataSomeValuesFrom>
     </SubClassOf>
@@ -374,93 +383,98 @@
         </DataMinCardinality>
     </SubClassOf>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#isInstrumentofRig"/>
-        <ObjectProperty IRI="#hasInstrument"/>
+        <ObjectProperty IRI="hasInstrument"/>
+        <ObjectProperty IRI="isInstrumentofRig"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#isInvestigationOfStudy"/>
-        <ObjectProperty IRI="#hasInvestigation"/>
+        <ObjectProperty IRI="isInvestigationOfStudy"/>
+        <ObjectProperty IRI="hasInvestigation"/>
     </InverseObjectProperties>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasInstrument"/>
-        <Class IRI="#Rig"/>
+        <ObjectProperty IRI="hasInstrument"/>
+        <Class IRI="Rig"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasInvestigation"/>
+        <ObjectProperty IRI="hasInvestigation"/>
+        <Class IRI="InvestigationSeries"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasInvestigation"/>
         <Class IRI="Study"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasInvestigation"/>
-        <Class IRI="#InvestigationSeries"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasMotivatingPublication"/>
+        <ObjectProperty IRI="hasMotivatingPublication"/>
         <Class IRI="Study"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasResponsiblePerson"/>
+        <ObjectProperty IRI="hasResponsiblePerson"/>
         <Class IRI="Instrument"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasResultingDataset"/>
+        <ObjectProperty IRI="hasResultingDataset"/>
         <Class abbreviatedIRI="csmo:#Investigation"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasResultingPublication"/>
+        <ObjectProperty IRI="hasResultingPublication"/>
         <Class IRI="Study"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasRig"/>
+        <ObjectProperty IRI="hasRig"/>
         <Class abbreviatedIRI="csmo:#Investigation"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isInstrumentofRig"/>
+        <ObjectProperty IRI="isInstrumentofRig"/>
         <Class IRI="Instrument"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#belongsToInstitution"/>
+        <ObjectProperty IRI="belongsToInstitution"/>
         <Class IRI="Institution"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasInstrument"/>
+        <ObjectProperty IRI="hasInstrument"/>
         <Class IRI="Instrument"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasInvestigation"/>
+        <ObjectProperty IRI="hasInvestigation"/>
         <Class abbreviatedIRI="csmo:#Investigation"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasMotivatingPublication"/>
+        <ObjectProperty IRI="hasMotivatingPublication"/>
         <Class IRI="Publication"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasResponsiblePerson"/>
+        <ObjectProperty IRI="hasResponsiblePerson"/>
         <Class IRI="Investigator"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasResultingPublication"/>
+        <ObjectProperty IRI="hasResultingPublication"/>
         <Class IRI="Publication"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasRig"/>
-        <Class IRI="#Rig"/>
+        <ObjectProperty IRI="hasRig"/>
+        <Class IRI="Rig"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#isInstrumentofRig"/>
-        <Class IRI="#Rig"/>
+        <ObjectProperty IRI="isInstrumentofRig"/>
+        <Class IRI="Rig"/>
     </ObjectPropertyRange>
     <DataPropertyDomain>
-        <DataProperty IRI="#hasMaxRunTime"/>
+        <DataProperty IRI="hasMaxRunTime"/>
         <Class abbreviatedIRI="csmo:#Investigation"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#requiresCalibration"/>
+        <DataProperty IRI="requiresCalibration"/>
         <Class IRI="Instrument"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#requiresConfiguration"/>
+        <DataProperty IRI="requiresConfiguration"/>
         <Class IRI="Instrument"/>
     </DataPropertyDomain>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>terms:format</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">resultMimeType</Literal>
+    </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>Dataset</IRI>
@@ -476,6 +490,17 @@ It represents a folder/directory. Examples of folders include folders on a files
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>Dataset</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Dataset</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Institution</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Institution represents an organization either housing a laboratory with instruments or employing an investigator</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>Institution</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Institution
+</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -516,22 +541,6 @@ It represents a folder/directory. Examples of folders include folders on a files
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>Study</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Study</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>terms:format</AbbreviatedIRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">resultMimeType</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Institution</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Institution represents an organization either housing a laboratory with instruments or employing an investigator</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Institution</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Institution
-</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
