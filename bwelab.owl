@@ -40,12 +40,6 @@ Frank Schwichtenberg</Literal>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">BW-eLabs ontology, which focuses on contextual information about experiments in research laboratories. The ontology is part of a larger effort, which includes data acquisition in the lab and semi-automated metadata generation. The ontology covers the whole research process from data generation to data publication.</Literal>
     </Annotation>
     <Declaration>
-        <Class IRI="Dataset"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="Institution"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="Instrument"/>
     </Declaration>
     <Declaration>
@@ -53,12 +47,6 @@ Frank Schwichtenberg</Literal>
     </Declaration>
     <Declaration>
         <Class IRI="InvestigationSeries"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="Investigator"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="Publication"/>
     </Declaration>
     <Declaration>
         <Class IRI="Rig"/>
@@ -132,47 +120,9 @@ Frank Schwichtenberg</Literal>
     <Declaration>
         <NamedIndividual IRI="sdf"/>
     </Declaration>
-    <EquivalentClasses>
-        <Class IRI="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Folder"/>
-        <Class IRI="Dataset"/>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="Institution"/>
-        <Class abbreviatedIRI="csmo:#Institution"/>
-    </EquivalentClasses>
-    <EquivalentClasses>
+    <SubClassOf>
         <Class IRI="Instrument"/>
         <Class abbreviatedIRI="csmo:#Instrument"/>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="Investigation"/>
-        <Class abbreviatedIRI="csmo:#Investigation"/>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="Investigator"/>
-        <Class abbreviatedIRI="csmo:#Investigator"/>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="Publication"/>
-        <Class abbreviatedIRI="csmo:#Publication"/>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="Study"/>
-        <Class abbreviatedIRI="csmo:#Study"/>
-    </EquivalentClasses>
-    <SubClassOf>
-        <Class IRI="Instrument"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="hasResponsiblePerson"/>
-            <Class IRI="Investigator"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="Instrument"/>
-        <ObjectMinCardinality cardinality="1">
-            <ObjectProperty IRI="belongsToInstitution"/>
-            <Class IRI="Institution"/>
-        </ObjectMinCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Instrument"/>
@@ -231,10 +181,7 @@ Frank Schwichtenberg</Literal>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Investigation"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="hasResultingDataset"/>
-            <Class IRI="Dataset"/>
-        </ObjectSomeValuesFrom>
+        <Class abbreviatedIRI="csmo:#Investigation"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Investigation"/>
@@ -293,23 +240,13 @@ Frank Schwichtenberg</Literal>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Study"/>
+        <Class abbreviatedIRI="csmo:#Study"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Study"/>
         <ObjectSomeValuesFrom>
             <ObjectProperty IRI="hasInvestigation"/>
             <Class IRI="Investigation"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="Study"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="hasMotivatingPublication"/>
-            <Class IRI="Publication"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="Study"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="hasResultingPublication"/>
-            <Class IRI="Publication"/>
         </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
@@ -374,32 +311,12 @@ Frank Schwichtenberg</Literal>
         <Class IRI="Instrument"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="belongsToInstitution"/>
-        <Class IRI="Institution"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="hasInstrument"/>
         <Class IRI="Instrument"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="hasInvestigation"/>
         <Class IRI="Investigation"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="hasMotivatingPublication"/>
-        <Class IRI="Publication"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="hasResponsiblePerson"/>
-        <Class IRI="Investigator"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="hasResultingDataset"/>
-        <Class IRI="Dataset"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="hasResultingPublication"/>
-        <Class IRI="Publication"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="hasRig"/>
@@ -428,33 +345,6 @@ Frank Schwichtenberg</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Dataset</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The entity Dataset represents acquired experimental data and may consist of one or more files</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Dataset</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This Entity is derived from nfo:Folder.
-It represents a folder/directory. Examples of folders include folders on a filesystem and message folders in a mailbox.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Dataset</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Dataset</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Institution</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Institution represents an organization either housing a laboratory with instruments or employing an investigator</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Institution</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Institution
-</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>Instrument</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">An instrument represents a laboratory instrument (e.g., spectrometer, sample holder).</Literal>
     </AnnotationAssertion>
@@ -472,26 +362,6 @@ It represents a folder/directory. Examples of folders include folders on a files
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>Investigation</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Investigation</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Investigator</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The entity Investigator represents a real person involved in an experiment.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Investigator</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Investigator</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Publication</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The entity Publication represents bibliographic information about a publication</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Publication</IRI>
-        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Publication</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
