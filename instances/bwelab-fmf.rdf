@@ -1,0 +1,595 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY csmo "https://www.escidoc.org/ontologies/csmo/" >
+    <!ENTITY csmo2 "https://www.escidoc.org/ontologies/csmo/#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY bwelab "https://www.escidoc.org/ontologies/bwelab/#" >
+]>
+
+
+<rdf:RDF xmlns="https://www.escidoc.org/ontologies/bwelab/"
+     xml:base="https://www.escidoc.org/ontologies/bwelab/"
+     xmlns:bwelab="https://www.escidoc.org/ontologies/bwelab/#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:csmo="https://www.escidoc.org/ontologies/csmo/"
+     xmlns:csmo2="&csmo;#">
+    <owl:Ontology rdf:about="https://www.escidoc.org/ontologies/bwelab/">
+        <terms:creator>Armand Brahaj
+Frank Schwichtenberg</terms:creator>
+        <owl:versionInfo xml:lang="en">0.3</owl:versionInfo>
+        <terms:description xml:lang="en">BW-eLabs ontology, which focuses on contextual information about experiments in research laboratories. The ontology is part of a larger effort, which includes data acquisition in the lab and semi-automated metadata generation. The ontology covers the whole research process from data generation to data publication.</terms:description>
+        <owl:versionIRI rdf:resource="https://www.escidoc.org/ontologies/bwelab/"/>
+        <owl:imports rdf:resource="https://www.escidoc.org/ontologies/csmo/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/belongsToInstitution -->
+
+    <owl:ObjectProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/belongsToInstitution">
+        <rdfs:domain rdf:resource="https://www.escidoc.org/ontologies/bwelab/Instrument"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/hasInstrument -->
+
+    <owl:ObjectProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/hasInstrument">
+        <rdfs:range rdf:resource="https://www.escidoc.org/ontologies/bwelab/Instrument"/>
+        <rdfs:domain rdf:resource="https://www.escidoc.org/ontologies/bwelab/Rig"/>
+        <owl:inverseOf rdf:resource="https://www.escidoc.org/ontologies/bwelab/isInstrumentofRig"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/hasInvestigation -->
+
+    <owl:ObjectProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/hasInvestigation">
+        <rdfs:range rdf:resource="https://www.escidoc.org/ontologies/bwelab/Investigation"/>
+        <rdfs:domain rdf:resource="https://www.escidoc.org/ontologies/bwelab/InvestigationSeries"/>
+        <rdfs:domain rdf:resource="https://www.escidoc.org/ontologies/bwelab/Study"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/hasMotivatingPublication -->
+
+    <owl:ObjectProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/hasMotivatingPublication">
+        <rdfs:domain rdf:resource="https://www.escidoc.org/ontologies/bwelab/Study"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/hasResponsiblePerson -->
+
+    <owl:ObjectProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/hasResponsiblePerson">
+        <rdfs:domain rdf:resource="https://www.escidoc.org/ontologies/bwelab/Instrument"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/hasResultingDataset -->
+
+    <owl:ObjectProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/hasResultingDataset">
+        <rdfs:domain rdf:resource="https://www.escidoc.org/ontologies/bwelab/Investigation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/hasResultingPublication -->
+
+    <owl:ObjectProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/hasResultingPublication">
+        <rdfs:domain rdf:resource="https://www.escidoc.org/ontologies/bwelab/Study"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/hasRig -->
+
+    <owl:ObjectProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/hasRig">
+        <rdfs:domain rdf:resource="https://www.escidoc.org/ontologies/bwelab/Investigation"/>
+        <rdfs:range rdf:resource="https://www.escidoc.org/ontologies/bwelab/Rig"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/isInstrumentofRig -->
+
+    <owl:ObjectProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/isInstrumentofRig">
+        <rdfs:domain rdf:resource="https://www.escidoc.org/ontologies/bwelab/Instrument"/>
+        <rdfs:range rdf:resource="https://www.escidoc.org/ontologies/bwelab/Rig"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/isInvestigationOfStudy -->
+
+    <owl:ObjectProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/isInvestigationOfStudy">
+        <owl:inverseOf rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasInvestigation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/csmo/#hasSite -->
+
+    <owl:ObjectProperty rdf:about="&csmo;#hasSite"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:DatatypeProperty rdf:about="&terms;description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/format -->
+
+    <owl:DatatypeProperty rdf:about="&terms;format">
+        <rdfs:label xml:lang="en">resultMimeType</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:DatatypeProperty rdf:about="&terms;title"/>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/hasDepositEndpoint -->
+
+    <owl:DatatypeProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/hasDepositEndpoint"/>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/hasEsyncEndpoint -->
+
+    <owl:DatatypeProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/hasEsyncEndpoint"/>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/hasMaxRunTime -->
+
+    <owl:DatatypeProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/hasMaxRunTime">
+        <rdfs:domain rdf:resource="https://www.escidoc.org/ontologies/bwelab/Investigation"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/hasMonitoredFolder -->
+
+    <owl:DatatypeProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/hasMonitoredFolder"/>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/id -->
+
+    <owl:DatatypeProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/id"/>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/requiresCalibration -->
+
+    <owl:DatatypeProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/requiresCalibration">
+        <rdfs:domain rdf:resource="https://www.escidoc.org/ontologies/bwelab/Instrument"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/requiresConfiguration -->
+
+    <owl:DatatypeProperty rdf:about="https://www.escidoc.org/ontologies/bwelab/requiresConfiguration">
+        <rdfs:domain rdf:resource="https://www.escidoc.org/ontologies/bwelab/Instrument"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/Instrument -->
+
+    <owl:Class rdf:about="https://www.escidoc.org/ontologies/bwelab/Instrument">
+        <rdfs:label xml:lang="en">Instrument</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&csmo;#Instrument"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&terms;description"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/requiresConfiguration"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasResponsiblePerson"/>
+                <owl:someValuesFrom rdf:resource="&csmo;#Investigator"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&terms;format"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasMonitoredFolder"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;anyURI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasEsyncEndpoint"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;anyURI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/id"/>
+                <owl:allValuesFrom rdf:resource="&xsd;nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/requiresCalibration"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&terms;title"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An instrument represents a laboratory instrument (e.g., spectrometer, sample holder).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/Investigation -->
+
+    <owl:Class rdf:about="https://www.escidoc.org/ontologies/bwelab/Investigation">
+        <rdfs:label xml:lang="en">Investigation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&csmo;#Investigation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasRig"/>
+                <owl:onClass rdf:resource="https://www.escidoc.org/ontologies/bwelab/Rig"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasDepositEndpoint"/>
+                <owl:someValuesFrom rdf:resource="&xsd;anyURI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&terms;description"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&terms;title"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasMaxRunTime"/>
+                <owl:someValuesFrom rdf:resource="&xsd;integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The entity Investigation represents an experiment, its setup, and the resulting datasets</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/InvestigationSeries -->
+
+    <owl:Class rdf:about="https://www.escidoc.org/ontologies/bwelab/InvestigationSeries">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasInvestigation"/>
+                <owl:someValuesFrom rdf:resource="https://www.escidoc.org/ontologies/bwelab/Investigation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&terms;title"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/Rig -->
+
+    <owl:Class rdf:about="https://www.escidoc.org/ontologies/bwelab/Rig">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasInstrument"/>
+                <owl:onClass rdf:resource="https://www.escidoc.org/ontologies/bwelab/Instrument"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/Study -->
+
+    <owl:Class rdf:about="https://www.escidoc.org/ontologies/bwelab/Study">
+        <rdfs:label xml:lang="en">Study</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&csmo;#Study"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&terms;title"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://www.escidoc.org/ontologies/bwelab/hasInvestigation"/>
+                <owl:someValuesFrom rdf:resource="https://www.escidoc.org/ontologies/bwelab/Investigation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&terms;description"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The entity Study describes an act of research which consists of one or many investigations</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/Deposit_User -->
+
+    <csmo2:Investigator rdf:about="https://www.escidoc.org/ontologies/bwelab/Deposit_User">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>Deposit User</rdfs:label>
+        <foaf:name>Depositor User</foaf:name>
+    </csmo2:Investigator>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/FIZ_Karlsruhe -->
+
+    <csmo2:Institution rdf:about="https://www.escidoc.org/ontologies/bwelab/FIZ_Karlsruhe">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>FIZ Karlsruhe</rdfs:label>
+    </csmo2:Institution>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/FRS_Instrument_02 -->
+
+    <Instrument rdf:about="https://www.escidoc.org/ontologies/bwelab/FRS_Instrument_02">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>FRS Instrument 02</rdfs:label>
+        <id rdf:datatype="&xsd;integer">escidoc:25</id>
+        <requiresCalibration rdf:datatype="&xsd;boolean">false</requiresCalibration>
+        <requiresConfiguration rdf:datatype="&xsd;boolean">true</requiresConfiguration>
+        <terms:format>application/zip</terms:format>
+        <hasEsyncEndpoint>http://my.sy/nc/endpoint02</hasEsyncEndpoint>
+        <terms:description>description</terms:description>
+        <hasMonitoredFolder>C:\Temp</hasMonitoredFolder>
+        <terms:title>FRS Instrument 02</terms:title>
+        <csmo2:settings></csmo2:settings>
+        <hasResponsiblePerson rdf:resource="https://www.escidoc.org/ontologies/bwelab/Deposit_User"/>
+    </Instrument>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/FRS_Rig_01 -->
+
+    <Rig rdf:about="https://www.escidoc.org/ontologies/bwelab/FRS_Rig_01">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>FRS Rig 01</rdfs:label>
+        <terms:description>An example Rig for eLabs development x</terms:description>
+        <terms:title>FRS Rig 01</terms:title>
+        <csmo2:hasInstrument rdf:resource="https://www.escidoc.org/ontologies/bwelab/FRS_Instrument_02"/>
+        <csmo2:hasInstrument rdf:resource="https://www.escidoc.org/ontologies/bwelab/Instrument_0011"/>
+    </Rig>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/FRS_Study_011 -->
+
+    <Study rdf:about="https://www.escidoc.org/ontologies/bwelab/FRS_Study_011">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>FRS Study 011</rdfs:label>
+        <csmo2:studyCreationDate rdf:datatype="&xsd;dateTime">08.02.2012 17:49</csmo2:studyCreationDate>
+        <csmo2:studyStatus rdf:datatype="&rdfs;Literal">open</csmo2:studyStatus>
+        <terms:description>FRS Demo</terms:description>
+        <terms:title>FRS Study 011</terms:title>
+    </Study>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/Instrument_0011 -->
+
+    <Instrument rdf:about="https://www.escidoc.org/ontologies/bwelab/Instrument_0011">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <rdfs:label>Instrument 0011</rdfs:label>
+        <hasDepositEndpoint rdf:datatype="&xsd;anyURI">c:\tmp\monitored0001</hasDepositEndpoint>
+        <requiresConfiguration rdf:datatype="&xsd;boolean">false</requiresConfiguration>
+        <requiresCalibration rdf:datatype="&xsd;boolean">false</requiresCalibration>
+        <hasEsyncEndpoint rdf:datatype="&xsd;anyURI">http://localhost:9998</hasEsyncEndpoint>
+        <terms:format>text/plain</terms:format>
+        <terms:description>Instrument test description</terms:description>
+        <id>escidoc:55</id>
+        <terms:title>Instrument 0011</terms:title>
+        <hasResponsiblePerson rdf:resource="https://www.escidoc.org/ontologies/bwelab/Deposit_User"/>
+    </Instrument>
+    
+
+
+    <!-- https://www.escidoc.org/ontologies/bwelab/sdf -->
+
+    <owl:NamedIndividual rdf:about="https://www.escidoc.org/ontologies/bwelab/sdf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&bwelab;isInvestigationOfStudy">
+        <rdfs:label xml:lang="en">isInvestigationOfStudy</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;hasMaxRunTime">
+        <rdfs:label xml:lang="en">hasMaxRunTime</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;hasResultingDataset">
+        <rdfs:label xml:lang="en">hasResultingDataset</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;hasDepositEndpoint">
+        <rdfs:label xml:lang="en">hasDepositEndpoint</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;Rig">
+        <rdfs:label xml:lang="en">Rig</rdfs:label>
+        <rdfs:comment xml:lang="en">A rig describes a set of instruments that are required as a unit to conduct an experiment</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;InvestigationSeries">
+        <rdfs:label xml:lang="en">InvestigationSeries</rdfs:label>
+        <rdfs:comment xml:lang="en">The entity Investigation Series aggregates one or many investigations. </rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;hasResultingPublication">
+        <rdfs:label xml:lang="en">hasResultingPublication</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;hasResponsiblePerson">
+        <rdfs:label xml:lang="en">hasResponsiblePerson</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;hasInstrument">
+        <rdfs:label xml:lang="en">hasInstrument</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;hasInvestigation">
+        <rdfs:label xml:lang="en">hasInvestigation</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;requiresCalibration">
+        <rdfs:label xml:lang="en">requiresCalibration</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;hasMonitoredFolder">
+        <rdfs:label xml:lang="en">hasMonitoredFolder</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;isInstrumentofRig">
+        <rdfs:label xml:lang="en">isInstrumentofRig</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;belongsToInstitution">
+        <rdfs:label xml:lang="en">belongsToInstitution</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;hasEsyncEndpoint">
+        <rdfs:label xml:lang="en">hasEsyncEndpoint</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;id">
+        <rdfs:label xml:lang="en">id</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;requiresConfiguration">
+        <rdfs:label xml:lang="en">requiresConfiguration</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;hasRig">
+        <rdfs:label xml:lang="en">hasRig</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="&bwelab;hasMotivatingPublication">
+        <rdfs:label xml:lang="en">hasMotivatingPublication</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

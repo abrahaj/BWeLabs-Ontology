@@ -1,0 +1,597 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="https://www.escidoc.org/ontologies/bwelab/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="https://www.escidoc.org/ontologies/bwelab/"
+     versionIRI="https://www.escidoc.org/ontologies/bwelab/">
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="terms" IRI="http://purl.org/dc/terms/"/>
+    <Prefix name="csmo" IRI="https://www.escidoc.org/ontologies/csmo/"/>
+    <Prefix name="" IRI="https://www.escidoc.org/ontologies/bwelab/"/>
+    <Prefix name="bwelab" IRI="https://www.escidoc.org/ontologies/bwelab/#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>https://www.escidoc.org/ontologies/csmo/</Import>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">0.3</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="terms:creator"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Armand Brahaj
+Frank Schwichtenberg</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="terms:description"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">BW-eLabs ontology, which focuses on contextual information about experiments in research laboratories. The ontology is part of a larger effort, which includes data acquisition in the lab and semi-automated metadata generation. The ontology covers the whole research process from data generation to data publication.</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="Instrument"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Investigation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="InvestigationSeries"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Rig"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Study"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="belongsToInstitution"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasInstrument"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasInvestigation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasMotivatingPublication"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasResponsiblePerson"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasResultingDataset"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasResultingPublication"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="hasRig"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="isInstrumentofRig"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="isInvestigationOfStudy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="csmo:#hasSite"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="terms:description"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="terms:format"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="terms:title"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="hasDepositEndpoint"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="hasEsyncEndpoint"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="hasMaxRunTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="hasMonitoredFolder"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="id"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="requiresCalibration"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="requiresConfiguration"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="FRS_Instrument_02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="FRS_Rig_01"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="FRS_Study_011"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="sdf"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="Instrument"/>
+        <Class abbreviatedIRI="csmo:#Instrument"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Instrument"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="terms:description"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Instrument"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="terms:format"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Instrument"/>
+        <DataAllValuesFrom>
+            <DataProperty IRI="id"/>
+            <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Instrument"/>
+        <DataMinCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="terms:title"/>
+        </DataMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Instrument"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="hasEsyncEndpoint"/>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Instrument"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="hasMonitoredFolder"/>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Instrument"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="requiresCalibration"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Instrument"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="requiresConfiguration"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Investigation"/>
+        <Class abbreviatedIRI="csmo:#Investigation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Investigation"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="hasRig"/>
+            <Class IRI="Rig"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Investigation"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="terms:description"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Investigation"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="hasDepositEndpoint"/>
+            <Datatype abbreviatedIRI="xsd:anyURI"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Investigation"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="hasMaxRunTime"/>
+            <Datatype abbreviatedIRI="xsd:integer"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Investigation"/>
+        <DataMinCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="terms:title"/>
+        </DataMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="InvestigationSeries"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="hasInvestigation"/>
+            <Class IRI="Investigation"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="InvestigationSeries"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="terms:title"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Rig"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="hasInstrument"/>
+            <Class IRI="Instrument"/>
+        </ObjectMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Study"/>
+        <Class abbreviatedIRI="csmo:#Study"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Study"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="hasInvestigation"/>
+            <Class IRI="Investigation"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Study"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="terms:description"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Study"/>
+        <DataMinCardinality cardinality="1">
+            <DataProperty abbreviatedIRI="terms:title"/>
+        </DataMinCardinality>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="Instrument"/>
+        <NamedIndividual IRI="FRS_Instrument_02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Rig"/>
+        <NamedIndividual IRI="FRS_Rig_01"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="Study"/>
+        <NamedIndividual IRI="FRS_Study_011"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="terms:description"/>
+        <NamedIndividual IRI="FRS_Instrument_02"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">description</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="terms:format"/>
+        <NamedIndividual IRI="FRS_Instrument_02"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">application/zip</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="terms:title"/>
+        <NamedIndividual IRI="FRS_Instrument_02"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">FRS Instrument 02</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="hasEsyncEndpoint"/>
+        <NamedIndividual IRI="FRS_Instrument_02"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://my.sy/nc/endpoint02</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="hasMonitoredFolder"/>
+        <NamedIndividual IRI="FRS_Instrument_02"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">C:\Temp</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="id"/>
+        <NamedIndividual IRI="FRS_Instrument_02"/>
+        <Literal datatypeIRI="&xsd;integer">escidoc:25</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="requiresCalibration"/>
+        <NamedIndividual IRI="FRS_Instrument_02"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="requiresConfiguration"/>
+        <NamedIndividual IRI="FRS_Instrument_02"/>
+        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="csmo:#settings"/>
+        <NamedIndividual IRI="FRS_Instrument_02"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral"></Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="terms:description"/>
+        <NamedIndividual IRI="FRS_Rig_01"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral"></Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="terms:title"/>
+        <NamedIndividual IRI="FRS_Rig_01"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">FRS Rig 01</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="terms:description"/>
+        <NamedIndividual IRI="FRS_Study_011"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">FRS Demo</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="terms:title"/>
+        <NamedIndividual IRI="FRS_Study_011"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">FRS Study 011</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="csmo:#studyCreationDate"/>
+        <NamedIndividual IRI="FRS_Study_011"/>
+        <Literal datatypeIRI="&xsd;dateTime">08.02.2012 17:49</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="csmo:#studyStatus"/>
+        <NamedIndividual IRI="FRS_Study_011"/>
+        <Literal datatypeIRI="&rdfs;Literal">open</Literal>
+    </DataPropertyAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="hasInstrument"/>
+        <ObjectProperty IRI="isInstrumentofRig"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="isInvestigationOfStudy"/>
+        <ObjectProperty IRI="hasInvestigation"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="belongsToInstitution"/>
+        <Class IRI="Instrument"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasInstrument"/>
+        <Class IRI="Rig"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasInvestigation"/>
+        <Class IRI="InvestigationSeries"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasInvestigation"/>
+        <Class IRI="Study"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasMotivatingPublication"/>
+        <Class IRI="Study"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasResponsiblePerson"/>
+        <Class IRI="Instrument"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasResultingDataset"/>
+        <Class IRI="Investigation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasResultingPublication"/>
+        <Class IRI="Study"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasRig"/>
+        <Class IRI="Investigation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="isInstrumentofRig"/>
+        <Class IRI="Instrument"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasInstrument"/>
+        <Class IRI="Instrument"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasInvestigation"/>
+        <Class IRI="Investigation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="hasRig"/>
+        <Class IRI="Rig"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="isInstrumentofRig"/>
+        <Class IRI="Rig"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="hasMaxRunTime"/>
+        <Class IRI="Investigation"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="requiresCalibration"/>
+        <Class IRI="Instrument"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="requiresConfiguration"/>
+        <Class IRI="Instrument"/>
+    </DataPropertyDomain>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>terms:format</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">resultMimeType</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>FRS_Instrument_02</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">FRS Instrument 02</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>FRS_Rig_01</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">FRS Rig 01</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>FRS_Study_011</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">FRS Study 011</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Instrument</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">An instrument represents a laboratory instrument (e.g., spectrometer, sample holder).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>Instrument</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Instrument</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Investigation</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The entity Investigation represents an experiment, its setup, and the resulting datasets</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>Investigation</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Investigation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Study</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The entity Study describes an act of research which consists of one or many investigations</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>Study</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Study</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#InvestigationSeries</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The entity Investigation Series aggregates one or many investigations. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#InvestigationSeries</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">InvestigationSeries</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Rig</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A rig describes a set of instruments that are required as a unit to conduct an experiment</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Rig</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Rig</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#belongsToInstitution</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">belongsToInstitution</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasDepositEndpoint</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasDepositEndpoint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasEsyncEndpoint</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasEsyncEndpoint</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasInstrument</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasInstrument</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasInvestigation</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasInvestigation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasMaxRunTime</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasMaxRunTime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasMonitoredFolder</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasMonitoredFolder</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasMotivatingPublication</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasMotivatingPublication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasResponsiblePerson</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasResponsiblePerson</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasResultingDataset</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasResultingDataset</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasResultingPublication</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasResultingPublication</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasRig</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">hasRig</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#id</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">id</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isInstrumentofRig</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">isInstrumentofRig</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isInvestigationOfStudy</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">isInvestigationOfStudy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#requiresCalibration</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">requiresCalibration</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#requiresConfiguration</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">requiresConfiguration</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

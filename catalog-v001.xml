@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="https://www.escidoc.org/ontologies/csmo/" uri="file:/home/ajb/git/CSMO-Ontology/csmo.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1332774615560" name="duplicate:https://www.escidoc.org/ontologies/bwelab/" uri="bwelab.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1332774615560" name="duplicate:https://www.escidoc.org/ontologies/bwelab/" uri="bwelab.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1332774615560" name="shadowed:https://www.escidoc.org/ontologies/bwelab/" uri="version-history/bwelab.v02.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1332774615560" name="shadowed:https://www.escidoc.org/ontologies/bwelab/" uri="version-history/bwelab.v02.rdf"/>
+    </group>
+</catalog>
